@@ -1,10 +1,13 @@
 import React from "react";
-import {Plyr} from "plyr-react";
-import "plyr-react/dist/plyr.css";
+import Plyr  from "plyr-react";
+import "plyr-react/plyr.css";
+
+import './App.scss';
 
 const videoSrc = {
+  
   type: "video",
-  title: "Elephants Dream",
+  title: "Elephants",
   sources: [
     {
       src:
@@ -19,51 +22,61 @@ const videoSrc = {
       },
     
   ],
+  
+  
   tracks: [
     {
       kind: "captions",
       label: "Russian",
       srclang: "ru",
-      src: "/subtitles-rus.vtt",
+      src: "../subtitles/subtitles-ru.vtt",
       default: true
     },
     {
       kind: "captions",
       label: "English",
       srclang: "en",
-      src: "/subtitles-en.vtt",
+      src: "../subtitles/subtitles-en.vtt",
       default: true
     }
   ],
   quality: {
-     default: 576,
-    options: [4320, 2880, 2160, 1440, 1080, 720, 576, 480, 360, 240] 
+    default: 576,
+    // The options to display in the UI, if available for the source media
+    options: [4320, 2880, 2160, 1440, 1080, 720, 576, 480, 360, 240],
+    // forced: true,
+    // onChange: null,
   },
+  seekTime: 5,
+  settings: ['captions', 'quality', 'speed'],
+
   markers: {
     enabled: true,
     points: [
       {
-        time: 10,
-        label: 'first marker',
+        time: 15,
+        tip: 'first marker',
       },
       {
-        time: 20,
-        label: 'second marker',
+        time: 23,
+        tip: 'second marker',
       },
       {
-        time: 30,
-        label: '<strong>third</strong> marker',
+        time: 31,
+        tipHTML: '<strong>third</strong> marker',
       },
     ],
   },
 };
 
-console.log(videoSrc);
+// console.log(videoSrc);
 // learn more https://github.com/sampotts/plyr#the-source-setter
 
 export default function App() {
   return (
-    <div>
+    
+    <div className = "wrapper">
+      <h1>PLYR</h1>
       <MyComponent />
     </div>
   );
@@ -71,8 +84,10 @@ export default function App() {
 
 export const MyComponent = () => {
   return (
-    <>
+    <div className = "player">
       <Plyr source={videoSrc} />
-    </>
+      
+    </div>
   );
 };
+console.log(Plyr);

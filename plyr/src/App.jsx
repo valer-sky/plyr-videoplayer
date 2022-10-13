@@ -22,8 +22,6 @@ const videoSrc = {
       },
     
   ],
-  
-  
   tracks: [
     {
       kind: "captions",
@@ -40,6 +38,27 @@ const videoSrc = {
       default: true
     }
   ],
+  previewThumbnails: {
+    enabled: true,
+    src: ['https://cdn.plyr.io/static/demo/thumbs/100p.vtt', 'https://cdn.plyr.io/static/demo/thumbs/240p.vtt'],
+  },
+  tooltips: {
+    controls: true,
+  },
+  mediaMetadata: {
+    title: 'View From A Blue Moon',
+    album: 'Sports',
+    artist: 'Brainfarm',
+    artwork: [
+      {
+        src: 'https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg',
+        type: 'image/jpeg',
+      },
+    ],
+  },
+};
+
+ const optionsVideoplayer = {
   quality: {
     default: 576,
     // The options to display in the UI, if available for the source media
@@ -47,9 +66,8 @@ const videoSrc = {
     // forced: true,
     // onChange: null,
   },
-  seekTime: 5,
-  settings: ['captions', 'quality', 'speed'],
-
+  
+ 
   markers: {
     enabled: true,
     points: [
@@ -67,8 +85,47 @@ const videoSrc = {
       },
     ],
   },
-};
+  
+  seekTime: 5,
+ };
 
+ const settings = ['captions', 'quality', 'speed']
+
+ const controlsVideo = {
+  i18n: {
+    restart: 'Restart',
+    rewind: 'Rewind {seektime} secs',
+    play: 'Play',
+    pause: 'Pause',
+    fastForward: 'Forward {seektime} secs',
+    seek: 'Seek',
+    played: 'Played',
+    buffered: 'Buffered',
+    currentTime: 'Current time',
+    duration: 'Duration',
+    volume: 'Volume',
+    mute: 'Mute',
+    unmute: 'Unmute',
+    enableCaptions: 'Enable captions',
+    disableCaptions: 'Disable captions',
+    enterFullscreen: 'Enter fullscreen',
+    exitFullscreen: 'Exit fullscreen',
+    frameTitle: 'Player for {title}',
+    captions: 'Captions',
+    settings: 'Settings',
+    speed: 'Speed',
+    normal: 'Normal',
+    quality: 'Quality',
+    loop: 'Loop',
+    start: 'Start',
+    end: 'End',
+    all: 'All',
+    reset: 'Reset',
+    disabled: 'Disabled',
+    advertisement: 'Ad',
+}
+ }
+ 
 // console.log(videoSrc);
 // learn more https://github.com/sampotts/plyr#the-source-setter
 
@@ -85,9 +142,16 @@ export default function App() {
 export const MyComponent = () => {
   return (
     <div className = "player">
-      <Plyr source={videoSrc} />
+      <Plyr options={optionsVideoplayer}  source={videoSrc}
+      controls={controlsVideo} 
+      
+      settings= {settings}
+      
+      />
       
     </div>
   );
+  
 };
-console.log(Plyr);
+
+console.log(Plyr.options);

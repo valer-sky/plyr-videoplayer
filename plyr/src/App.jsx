@@ -1,11 +1,12 @@
 import React from "react";
 import Plyr  from "plyr-react";
+import Vimeo from '@u-wave/react-vimeo';
 import "plyr-react/plyr.css";
 
 import './App.scss';
 
 const videoSrc = {
-  
+
   type: "video",
   title: "Elephants",
   sources: [
@@ -15,13 +16,7 @@ const videoSrc = {
       type: "video/mp4",
       size: 720
     },
-   
-     {
-        src: 'bTqVqk7FSmY',
-        provider: 'youtube',
-      },
-    
-  ],
+],
   tracks: [
     {
       kind: "captions",
@@ -45,17 +40,84 @@ const videoSrc = {
   tooltips: {
     controls: true,
   },
-  mediaMetadata: {
-    title: 'View From A Blue Moon',
-    album: 'Sports',
-    artist: 'Brainfarm',
-    artwork: [
-      {
-        src: 'https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg',
-        type: 'image/jpeg',
-      },
-    ],
-  },
+    //Another exemple  a videoplayer
+    // type: 'video',
+    // title: 'View From A Blue Moon',
+    // sources: [
+    //   {
+    //     src: 'https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4',
+    //     type: 'video/mp4',
+    //     size: 576,
+    //   },
+    //   {
+    //     src: 'https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-720p.mp4',
+    //     type: 'video/mp4',
+    //     size: 720,
+    //   },
+    //   {
+    //     src: 'https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1080p.mp4',
+    //     type: 'video/mp4',
+    //     size: 1080,
+    //   },
+    //   {
+    //     src: 'https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1440p.mp4',
+    //     type: 'video/mp4',
+    //     size: 1440,
+    //   },
+    // ],
+    // poster: 'https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg',
+    // tracks: [
+    //   {
+    //     kind: 'captions',
+    //     label: 'English',
+    //     srclang: 'en',
+    //     src: 'https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.en.vtt',
+    //     default: true,
+    //   },
+    //   {
+    //     kind: 'captions',
+    //     label: 'French',
+    //     srclang: 'fr',
+    //     src: 'https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.fr.vtt',
+    //   },
+    // ],
+    // previewThumbnails: {
+    //   src: ['https://cdn.plyr.io/static/demo/thumbs/100p.vtt', 'https://cdn.plyr.io/static/demo/thumbs/240p.vtt'],
+    // },
+  
+  //AUDIO
+  // type: 'audio',
+  // title: 'Kishi Bashi &ndash; &ldquo;It All Began With A Burst&rdquo;',
+  // sources: [
+  //   {
+  //     src: 'https://cdn.plyr.io/static/demo/Kishi_Bashi_-_It_All_Began_With_a_Burst.mp3',
+  //     type: 'audio/mp3',
+  //   },
+  //   {
+  //     src: 'https://cdn.plyr.io/static/demo/Kishi_Bashi_-_It_All_Began_With_a_Burst.ogg',
+  //     type: 'audio/ogg',
+  //   },
+  // ],
+
+  //YOUTUBE
+  // type: 'video',
+  // sources: [
+  //   {
+  //     src: 'https://youtube.com/watch?v=bTqVqk7FSmY',
+  //     provider: 'youtube',
+  //   },
+  // ],
+
+  //VIMEO
+  // type: 'video',
+  // sources: [
+  //   {
+  //     src: 'https://vimeo.com/40648169',
+  //     provider: 'vimeo',
+  //   },
+  // ],
+
+
 };
 
  const optionsVideoplayer = {
@@ -63,8 +125,8 @@ const videoSrc = {
     default: 576,
     // The options to display in the UI, if available for the source media
     options: [4320, 2880, 2160, 1440, 1080, 720, 576, 480, 360, 240],
-    // forced: true,
-    // onChange: null,
+    forced: true,
+    onChange: null,
   },
   
  
@@ -86,47 +148,30 @@ const videoSrc = {
     ],
   },
   
-  seekTime: 5,
+  
+  controls: [
+    'play-large', // The large play button in the center
+    'restart', // Restart playback
+    'rewind', // Rewind by the seek time (default 10 seconds)
+    'play', // Play/pause playback
+    'fast-forward', // Fast forward by the seek time (default 10 seconds)
+    'progress', // The progress bar and scrubber for playback and buffering
+    'current-time', // The current time of playback
+    'duration', // The full duration of the media
+    'mute', // Toggle mute
+    'volume', // Volume control
+    'captions', // Toggle captions
+    'settings', // Settings menu
+    'pip', // Picture-in-picture (currently Safari only)
+    'airplay', // Airplay (currently Safari only)
+    // 'download', // Show a download button with a link to either the current source or a custom URL you specify in your options
+    'fullscreen', // Toggle fullscreen
+    'advertisement',
+    'ads',
+  ],
+  seekTime: 10,
  };
 
- const settings = ['captions', 'quality', 'speed']
-
- const controlsVideo = {
-  i18n: {
-    restart: 'Restart',
-    rewind: 'Rewind {seektime} secs',
-    play: 'Play',
-    pause: 'Pause',
-    fastForward: 'Forward {seektime} secs',
-    seek: 'Seek',
-    played: 'Played',
-    buffered: 'Buffered',
-    currentTime: 'Current time',
-    duration: 'Duration',
-    volume: 'Volume',
-    mute: 'Mute',
-    unmute: 'Unmute',
-    enableCaptions: 'Enable captions',
-    disableCaptions: 'Disable captions',
-    enterFullscreen: 'Enter fullscreen',
-    exitFullscreen: 'Exit fullscreen',
-    frameTitle: 'Player for {title}',
-    captions: 'Captions',
-    settings: 'Settings',
-    speed: 'Speed',
-    normal: 'Normal',
-    quality: 'Quality',
-    loop: 'Loop',
-    start: 'Start',
-    end: 'End',
-    all: 'All',
-    reset: 'Reset',
-    disabled: 'Disabled',
-    advertisement: 'Ad',
-}
- }
- 
-// console.log(videoSrc);
 // learn more https://github.com/sampotts/plyr#the-source-setter
 
 export default function App() {
@@ -143,15 +188,14 @@ export const MyComponent = () => {
   return (
     <div className = "player">
       <Plyr options={optionsVideoplayer}  source={videoSrc}
-      controls={controlsVideo} 
-      
-      settings= {settings}
-      
-      />
+    />
+      <Vimeo options={optionsVideoplayer} 
+      source={videoSrc} 
+       />
       
     </div>
   );
   
 };
 
-console.log(Plyr.options);
+console.log(Plyr);

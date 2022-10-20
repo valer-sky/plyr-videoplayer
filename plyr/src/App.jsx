@@ -12,11 +12,19 @@ const videoSrc = {
   sources: [
     {
       src:
+        "https://d2zihajmogu5jn.cloudfront.net/elephantsdream/ed_hd.mp4",
+      type: "video/mp4",
+      size: 576,
+    },
+    {
+      src:
         "https://rawcdn.githack.com/chintan9/Big-Buck-Bunny/915c4b2aba75614b20dec3852375b394bb305f10/ElephantsDream.mp4",
       type: "video/mp4",
-      size: 720
+      size: 720,
     },
+   
 ],
+  poster: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Elephants_Dream_cover.jpg/1200px-Elephants_Dream_cover.jpg?20060831021346',
   tracks: [
     {
       kind: "captions",
@@ -129,7 +137,7 @@ const videoSrc = {
   quality: {
     default: 576,
     // The options to display in the UI, if available for the source media
-    options: [4320, 2880, 2160, 1440, 1080, 720, 576, 480, 360, 240],
+    options: [1080, 720, 576, 480, 360, 240],
     forced: true,
     onChange: null,
   },
@@ -139,15 +147,15 @@ const videoSrc = {
     points: [
       {
         time: 15,
-        tip: 'first marker',
+        label: "Test",
       },
       {
         time: 23,
-        tip: 'second marker',
+        label: "Test" ,
       },
       {
         time: 31,
-        tipHTML: '<strong>third</strong> marker',
+        label: '<strong>Test</strong> marker',
       },
     ],
   },

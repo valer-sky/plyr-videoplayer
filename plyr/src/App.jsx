@@ -31,7 +31,14 @@ const videoSrc = {
       srclang: "en",
       src: "../subtitles/subtitles-en.vtt",
       default: true
-    }
+    },
+    {
+      kind: "captions",
+      label: "Ukraine",
+      srclang: "ua",
+      src: "../subtitles/subtitles-ua.vtt",
+      default: true
+    },
   ],
   previewThumbnails: {
     enabled: true,

@@ -116,8 +116,6 @@ const videoSrc = {
   //     provider: 'vimeo',
   //   },
   // ],
-
-
 };
 
  const optionsVideoplayer = {
@@ -129,7 +127,6 @@ const videoSrc = {
     onChange: null,
   },
   
- 
   markers: {
     enabled: true,
     points: [
@@ -147,7 +144,6 @@ const videoSrc = {
       },
     ],
   },
-  
   
   controls: [
     'play-large', // The large play button in the center
@@ -176,7 +172,6 @@ const videoSrc = {
 
 export default function App() {
   return (
-    
     <div className = "wrapper">
       <h1>PLYR</h1>
       <MyComponent />
@@ -187,15 +182,14 @@ export default function App() {
 export const MyComponent = () => {
   return (
     <div className = "player">
-      <Plyr options={optionsVideoplayer}  source={videoSrc}
-    />
+      <Plyr options={optionsVideoplayer}  
+        source={videoSrc}
+      />
       <Vimeo options={optionsVideoplayer} 
       source={videoSrc} 
        />
-      
     </div>
   );
-  
 };
 
 console.log(Plyr);

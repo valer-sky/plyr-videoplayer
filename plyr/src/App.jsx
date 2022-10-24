@@ -1,6 +1,6 @@
 import React from "react";
 import Plyr  from "plyr-react";
-import Vimeo from '@u-wave/react-vimeo';
+// import Vimeo from '@u-wave/react-vimeo';
 import "plyr-react/plyr.css";
 
 import './App.scss';
@@ -12,7 +12,7 @@ const videoSrc = {
   sources: [
     {
       src:
-        "https://d2zihajmogu5jn.cloudfront.net/elephantsdream/ed_hd.mp4",
+        "https://rawcdn.githack.com/chintan9/Big-Buck-Bunny/915c4b2aba75614b20dec3852375b394bb305f10/ElephantsDream.mp4",
       type: "video/mp4",
       size: 576,
     },
@@ -21,6 +21,12 @@ const videoSrc = {
         "https://rawcdn.githack.com/chintan9/Big-Buck-Bunny/915c4b2aba75614b20dec3852375b394bb305f10/ElephantsDream.mp4",
       type: "video/mp4",
       size: 720,
+    },
+    {
+      src:
+        "https://rawcdn.githack.com/chintan9/Big-Buck-Bunny/915c4b2aba75614b20dec3852375b394bb305f10/ElephantsDream.mp4",
+      type: "video/mp4",
+      size: 1080,
     },
    
 ],
@@ -189,20 +195,20 @@ export default function App() {
   return (
     <div className = "wrapper">
       <h1>PLYR</h1>
-      <MyComponent />
+      <VideoPlayer />
     </div>
   );
 }
 
-export const MyComponent = () => {
+export const VideoPlayer = () => {
   return (
     <div className = "player">
       <Plyr options={optionsVideoplayer}  
         source={videoSrc}
       />
-      <Vimeo options={optionsVideoplayer} 
+      {/* <Vimeo options={optionsVideoplayer} 
       source={videoSrc} 
-       />
+       /> */}
     </div>
   );
 };
